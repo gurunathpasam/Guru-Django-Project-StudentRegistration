@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details Form</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: url('demo_project/templates/bg.jpg');
+      
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px; /* Set a max-width to prevent the form from becoming too wide on larger screens */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .address-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+    }
+
+    /* Media query for smaller screens */
+    @media only screen and (max-width: 600px) {
+      form {
+        max-width: 100%; /* Adjust the max-width for smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form method="post" action="">
+     {% csrf_token %}
+     
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="middleName">Middle Name:</label>
+    <input type="text" id="middleName" name="middleName">
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="contactNumber">Contact Number:</label>
+    <input type="tel" id="contactNumber" name="contactNumber" required>
+
+    <label for="course">Course:</label>
+    <select id="course" name="course" required>
+      <option value="" disabled selected>Select a course</option>
+      <option value="engineering">Engineering</option>
+      <option value="business">Business</option>
+      <option value="science">Science</option>
+    </select>
+
+    <label for="academicPercentage">Academic Percentage:</label>
+    <input type="number" id="academicPercentage" name="academicPercentage" step="0.01" required>
+
+    <label for="activeBacklogs">Active Backlogs:</label>
+    <input type="number" id="activeBacklogs" name="activeBacklogs" required>
+
+    <label>Address:</label>
+    <div class="address-group">
+      <input type="text" id="streetAddress" name="streetAddress" placeholder="Street Address" required>
+      <input type="text" id="city" name="city" placeholder="City" required>
+      <input type="text" id="state" name="state" placeholder="State" required>
+      <input type="text" id="country" name="country" placeholder="Country" required>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
